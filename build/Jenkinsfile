@@ -1,20 +1,24 @@
 pipeline {
     agent { label 'k8s-dind-worker' }
 
+    environment {
+        DOCKER_HOST = 'tcp://localhost:2375'
+    }
+
     stages {
-        stage('Build') {
+        stage('Clone repository') {
             steps {
-                echo 'Building..'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                checkout([
+                        $class: 'GitSCM',
+                        branches: [[name: '*/master']],
+                        doGenerateSubmoduleConfigurations: false,
+                        extensions: [],
+                        submoduleCfg: [],
+                        userRemoteConfigs: [[
+                                                    credentialsId: 'jenkins-twg',
+                                                    url: 'git@github.com:darthShana/jenkins-sample-application.git'
+                                            ]]
+                ])
             }
         }
     }
