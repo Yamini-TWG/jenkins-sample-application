@@ -10,7 +10,11 @@ pipeline {
                         branches: [[name: '*/master']],
                         doGenerateSubmoduleConfigurations: false,
                         extensions: [],
-                        submoduleCfg: []
+                        submoduleCfg: [],
+                        userRemoteConfigs: [[
+                                                    credentialsId: 'jenkins-twg',
+                                                    url: 'git@github.com:darthShana/connect-jenkins-bootstrap.git'
+                                            ]]
                 ])
             }
         }
