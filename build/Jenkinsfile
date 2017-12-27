@@ -3,22 +3,7 @@ pipeline {
     agent { label 'k8s-dind-worker' }
 
     stages {
-        stage('Clone repository') {
-            steps {
-                checkout([
-                        $class: 'GitSCM',
-                        branches: [[name: '*/master']],
-                        doGenerateSubmoduleConfigurations: false,
-                        extensions: [],
-                        submoduleCfg: [],
-                        userRemoteConfigs: [[
-                                                    credentialsId: 'jenkins-twg',
-                                                    url: 'git@github.com:darthShana/connect-jenkins-bootstrap.git'
-                                            ]]
-                ])
-            }
-        }
-
+        
         stage('Build') {
             steps {
                 echo 'Building..'
