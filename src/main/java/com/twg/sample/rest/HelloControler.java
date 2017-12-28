@@ -14,7 +14,6 @@ public class HelloControler {
 
     @RequestMapping("/")
     public String index(){
-        //random comment to trigger build
         return "hello from darthShana:"+calculator.calculateStock(4, 7, 9, 3);
     }
 }
