@@ -6,12 +6,14 @@ pipelineJob('jenkins-sample-application-build') {
     definition {
         cpsScm {
             scm {
-                git('git@github.com:darthShana/jenkins-sample-application.git') {
-                    node -> node / extensions()
-                    credentials('GitHub-repo')
+                git {
+                    remote {
+                        github('git@github.com:darthShana/jenkins-sample-application.git')
+                        credentials('GitHub-repo')
+                    }
                 }
             }
-            scriptPath('build/Jenkinsfile')
+
         }
     }
 }
