@@ -8,8 +8,8 @@ pipelineJob('jenkins-sample-application-build') {
             scm {
                 git {
                     remote {
-                        url("https://github.com/darthShana/jenkins-sample-application.git")
-                        credentials("GitHub-repo")
+                        url("git@github.com:darthShana/jenkins-sample-application.git")
+                        credentials('GitHub-repo')
                     }
                 }
             }
