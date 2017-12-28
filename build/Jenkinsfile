@@ -1,6 +1,10 @@
 pipeline {
     agent { label 'k8s-dind-worker' }
 
+    environment {
+        DOCKER_HOST = 'tcp://localhost:2375'
+    }
+    
     stages {
         stage('Build') {
             steps {
