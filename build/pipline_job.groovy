@@ -8,7 +8,7 @@ pipelineJob('jenkins-sample-application-build') {
             scm {
                 git {
                     remote {
-                        github('git@github.com:darthShana/jenkins-sample-application.git')
+                        github('darthShana/jenkins-sample-application.git')
                         credentials('GitHub-repo')
                     }
                 }
