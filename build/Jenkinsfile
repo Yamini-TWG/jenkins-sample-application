@@ -5,6 +5,11 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                withDockerServer(uri: env.DOCKER_HOST, credentialsId: "") {
+                    withDockerContainer(image: 'ikhripunov/connect-maven:latest') {
+                        sh 'mvn clean install'
+                    }
+                }
             }
         }
         stage('Test') {
