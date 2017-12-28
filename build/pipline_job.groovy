@@ -13,7 +13,7 @@ pipelineJob('jenkins-sample-application-build') {
                     }
                 }
             }
-
+            scriptPath('build/Jenkinsfile')
         }
     }
 }
