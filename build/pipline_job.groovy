@@ -9,7 +9,7 @@ pipelineJob('jenkins-sample-application-build') {
                 git {
                     remote {
                         url("git@github.com:darthShana/jenkins-sample-application.git")
-                        credentials('c2a3dc16-57c5-4cd0-be04-c2434cd0d052')
+                        credentials('cad4d603-d641-4132-8b2c-7da2280c8931')
                     }
                 }
             }
